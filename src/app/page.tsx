@@ -11,15 +11,18 @@ const menuItems = [
 
 export default function Home() {
   return (
-    <main className="flex flex-col flex-1 max-w-[420px] mx-auto w-full overflow-x-hidden bg-[#F5F0E8]">
-      <Gnb />
-      <div className="px-8 pt-2">
-        <p className="text-[20px] font-medium text-[#255435] leading-normal">
-          언제든지 놀러오세요. 해리집.
-        </p>
-      </div>
-      <div className="flex-1" />
-      <MenuSet items={menuItems} />
-    </main>
+    <>
+      <main className="flex flex-col min-h-dvh max-w-[420px] mx-auto w-full overflow-x-hidden bg-[#F5F0E8]">
+        <Gnb />
+        <div className="px-8 pt-2">
+          <p className="text-[20px] font-medium text-[#255435] leading-normal">
+            언제든지 놀러오세요. 해리집.
+          </p>
+        </div>
+        <div className="flex-1" />
+        <MenuSet items={menuItems} />
+      </main>
+      <div className="max-w-[420px] mx-auto w-full bg-[#819E7A] h-[360px]" />
+    </>
   )
 }

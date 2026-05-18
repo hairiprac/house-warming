@@ -22,7 +22,6 @@ export function MenuSet({ items, selectedIndex }: MenuSetProps) {
         />
       ))}
       <MenuBottom />
-      <div className="bg-[#819E7A] h-[360px]" />
     </div>
   )
 }
