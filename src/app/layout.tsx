@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className="h-full">
-      <body className="min-h-full flex flex-col bg-[#F5F0E8]">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#819E7A]">{children}</body>
     </html>
   );
 }
