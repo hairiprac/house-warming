@@ -5,9 +5,8 @@ import { PageBullet } from "@/components/page-bullet"
 import { PageLayout } from "@/components/page-layout"
 import { menuItems } from "@/lib/menu-items"
 
-// 서초구 서운로 17길 11, 프레스티지 서초
-const LAT = 37.489616
-const LNG = 127.014186
+const KAKAO_URL = "https://map.kakao.com/?urlX=506110.9999999995&urlY=1107805&urlLevel=3&itemId=1259903811&q=%ED%94%84%EB%A0%88%EC%8A%A4%ED%8B%B0%EC%A7%80%EC%84%9C%EC%B4%88&srcid=1259903811&map_type=TYPE_MAP"
+const PLACE_URL = "https://place.map.kakao.com/1259903811"
 
 export default function DirectionsPage() {
   return (
@@ -16,16 +15,14 @@ export default function DirectionsPage() {
       <div className="flex flex-col items-start w-full">
         <div className="px-8 pt-8 w-full">
           <KakaoMap
-            lat={LAT}
-            lng={LNG}
-            placeUrl="https://place.map.kakao.com/1259903811"
+            placeUrl={KAKAO_URL}
             className="w-full h-[356px] rounded-[4px]"
           />
         </div>
         <div className="flex flex-col gap-3 items-start px-8 pb-8 w-full">
           <PageBullet>
             <a
-              href="https://place.map.kakao.com/1259903811"
+              href={PLACE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#835B22] underline decoration-solid"

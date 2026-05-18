@@ -10,32 +10,33 @@ declare global {
 }
 
 interface KakaoMapProps {
-  lat: number
-  lng: number
-  level?: number
-  placeUrl?: string
+  placeUrl: string   // https://map.kakao.com/?urlX=...&urlY=...&urlLevel=...
   className?: string
 }
 
-export function KakaoMap({ lat, lng, level = 3, placeUrl, className }: KakaoMapProps) {
+function parseKakaoUrl(url: string) {
+  const u = new URL(url)
+  const x = parseFloat(u.searchParams.get("urlX") ?? "")
+  const y = parseFloat(u.searchParams.get("urlY") ?? "")
+  const level = parseInt(u.searchParams.get("urlLevel") ?? "3", 10)
+  return { x, y, level }
+}
+
+export function KakaoMap({ placeUrl, className }: KakaoMapProps) {
   const mapRef = useRef<HTMLDivElement>(null)
 
   const initMap = useCallback(() => {
     if (!mapRef.current || !window.kakao?.maps) return
+    const { x, y, level } = parseKakaoUrl(placeUrl)
     window.kakao.maps.load(() => {
-      const coords = new window.kakao.maps.LatLng(lat, lng)
-      const map = new window.kakao.maps.Map(mapRef.current, {
-        center: coords,
-        level,
-      })
+      const coords = new window.kakao.maps.Coords(x, y).toLatLng()
+      const map = new window.kakao.maps.Map(mapRef.current, { center: coords, level })
       const marker = new window.kakao.maps.Marker({ map, position: coords })
-      if (placeUrl) {
-        window.kakao.maps.event.addListener(marker, "click", () => {
-          window.open(placeUrl, "_blank")
-        })
-      }
+      window.kakao.maps.event.addListener(marker, "click", () => {
+        window.open(placeUrl, "_blank")
+      })
     })
-  }, [lat, lng, level, placeUrl])
+  }, [placeUrl])
 
   const appKey = process.env.NEXT_PUBLIC_KAKAO_MAP_KEY
 
@@ -54,10 +55,7 @@ export function KakaoMap({ lat, lng, level = 3, placeUrl, className }: KakaoMapP
         strategy="afterInteractive"
         onLoad={initMap}
       />
-      <div
-        ref={mapRef}
-        className={className ?? "w-full h-[356px] rounded-[4px]"}
-      />
+      <div ref={mapRef} className={className ?? "w-full h-[356px] rounded-[4px]"} />
     </>
   )
 }
