@@ -35,6 +35,15 @@ export async function readRows(sheetRange?: string) {
   return res.data.values ?? []
 }
 
+export async function getAllRows(): Promise<Record<string, string>[]> {
+  const rows = await readRows()
+  if (rows.length < 2) return []
+  const [headers, ...dataRows] = rows
+  return dataRows.map((row) =>
+    Object.fromEntries(headers.map((key, i) => [key, row[i] ?? ""]))
+  )
+}
+
 export async function appendRows(values: string[][], sheetRange?: string) {
   const sheets = getSheets()
   const res = await sheets.spreadsheets.values.append({
