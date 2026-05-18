@@ -1,7 +1,7 @@
 "use client"
 
 import Script from "next/script"
-import { useRef, useCallback } from "react"
+import { useRef, useCallback, useEffect } from "react"
 
 declare global {
   interface Window {
@@ -37,6 +37,10 @@ export function KakaoMap({ placeUrl, className }: KakaoMapProps) {
       })
     })
   }, [placeUrl])
+
+  useEffect(() => {
+    if (window.kakao?.maps) initMap()
+  }, [initMap])
 
   const appKey = process.env.NEXT_PUBLIC_KAKAO_MAP_KEY
 
