@@ -13,7 +13,7 @@ export default function DirectionsPage() {
     <PageLayout>
       <Gnb variant="Lv1" title="찾아오는 길" />
       <div className="flex flex-col items-start w-full">
-        <div className="px-8 pt-8 w-full">
+        <div className="px-8 pt-8 pb-6 w-full">
           <KakaoMap
             placeUrl={KAKAO_URL}
             className="w-full h-[356px] rounded-[4px]"
