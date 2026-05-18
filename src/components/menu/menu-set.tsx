@@ -19,6 +19,7 @@ export function MenuSet({ items, selectedIndex }: MenuSetProps) {
           key={item.label}
           label={item.label}
           selected={index === selectedIndex}
+          href={item.href}
         />
       ))}
       <MenuBottom />
