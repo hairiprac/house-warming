@@ -23,7 +23,7 @@ export function MenuSet({ items, selectedIndex }: MenuSetProps) {
         />
       ))}
       <MenuBottom />
-      <div className="bg-[#819E7A] w-full h-[460px]" />
+      {/* <div className="bg-[#819E7A] w-full h-[460px]" /> */}
     </div>
   )
 }
