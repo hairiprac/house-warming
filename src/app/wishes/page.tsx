@@ -16,22 +16,22 @@ export default function WishesPage() {
   const [loading, setLoading] = useState(true)
   const [dialogOpen, setDialogOpen] = useState(false)
 
-  async function fetchItems(pass?: string) {
-    const url = pass ? `/api/wishlist?pass=${encodeURIComponent(pass)}` : "/api/wishlist"
-    const res = await fetch(url)
-    const data = await res.json()
-    setItems(data.items ?? [])
-    setAuthed(data.authed ?? false)
-  }
-
   useEffect(() => {
-    fetchItems().finally(() => setLoading(false))
+    fetch("/api/wishlist")
+      .then((r) => r.json())
+      .then((data) => setItems(data.items ?? []))
+      .finally(() => setLoading(false))
   }, [])
 
   async function handleConfirm(pass?: string) {
     if (!pass) return
-    await fetchItems(pass)
-    setDialogOpen(false)
+    const res = await fetch(`/api/wishlist?pass=${encodeURIComponent(pass)}`)
+    const data = await res.json()
+    if (data.authed) {
+      setItems(data.items ?? [])
+      setAuthed(true)
+      setDialogOpen(false)
+    }
   }
 
   return (

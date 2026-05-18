@@ -18,9 +18,7 @@ interface GiftListItemProps {
 }
 
 export function GiftListItem({ item }: GiftListItemProps) {
-  const status = item.GRStatus === "Done" || item.GRStatus === "Registered"
-    ? item.GRStatus
-    : null
+  const status = item.GRStatus as "Done" | "Registered" | "Default"
   const dimmed = item.GRStatus !== "Default"
 
   return (
@@ -33,7 +31,7 @@ export function GiftListItem({ item }: GiftListItemProps) {
             className={`absolute inset-0 w-full h-full object-cover ${dimmed ? "opacity-50" : ""}`}
           />
         )}
-        {status && (
+        {dimmed && (
           <div className="absolute inset-0 bg-black/30 flex items-end justify-start p-2">
             <GrStatus status={status} />
           </div>
