@@ -21,6 +21,7 @@ export function GiftListItem({ item }: GiftListItemProps) {
   const status = item.GRStatus === "Done" || item.GRStatus === "Registered"
     ? item.GRStatus
     : null
+  const dimmed = item.GRStatus !== "Default"
 
   return (
     <div className="bg-[#F5F0E8] border-b border-[#819E7A] flex gap-4 items-start px-4 py-6 rounded-tl-[24px] rounded-tr-[24px] w-full">
@@ -29,7 +30,7 @@ export function GiftListItem({ item }: GiftListItemProps) {
           <img
             src={item.Thumbnail}
             alt={item.Item}
-            className="absolute inset-0 w-full h-full object-cover"
+            className={`absolute inset-0 w-full h-full object-cover ${dimmed ? "opacity-50" : ""}`}
           />
         )}
         {status && (
@@ -38,7 +39,7 @@ export function GiftListItem({ item }: GiftListItemProps) {
           </div>
         )}
       </div>
-      <div className="flex flex-1 flex-col gap-3 items-start min-w-0">
+      <div className={`flex flex-1 flex-col gap-3 items-start min-w-0 ${dimmed ? "opacity-50" : ""}`}>
         <div className="flex flex-col gap-1 items-start w-full">
           <p className="text-[20px] font-bold text-[#255435] leading-normal whitespace-nowrap">
             {item.Item}
