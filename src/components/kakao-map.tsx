@@ -13,10 +13,11 @@ interface KakaoMapProps {
   lat: number
   lng: number
   level?: number
+  placeUrl?: string
   className?: string
 }
 
-export function KakaoMap({ lat, lng, level = 3, className }: KakaoMapProps) {
+export function KakaoMap({ lat, lng, level = 3, placeUrl, className }: KakaoMapProps) {
   const mapRef = useRef<HTMLDivElement>(null)
 
   const initMap = useCallback(() => {
@@ -27,9 +28,14 @@ export function KakaoMap({ lat, lng, level = 3, className }: KakaoMapProps) {
         center: coords,
         level,
       })
-      new window.kakao.maps.Marker({ map, position: coords })
+      const marker = new window.kakao.maps.Marker({ map, position: coords })
+      if (placeUrl) {
+        window.kakao.maps.event.addListener(marker, "click", () => {
+          window.open(placeUrl, "_blank")
+        })
+      }
     })
-  }, [lat, lng, level])
+  }, [lat, lng, level, placeUrl])
 
   const appKey = process.env.NEXT_PUBLIC_KAKAO_MAP_KEY
 

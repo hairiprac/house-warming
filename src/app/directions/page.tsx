@@ -15,7 +15,12 @@ export default function DirectionsPage() {
       <Gnb variant="Lv1" title="찾아오는 길" />
       <div className="flex flex-col items-start w-full">
         <div className="px-8 pt-8 w-full">
-          <KakaoMap lat={LAT} lng={LNG} className="w-full h-[356px] rounded-[4px]" />
+          <KakaoMap
+            lat={LAT}
+            lng={LNG}
+            placeUrl="https://place.map.kakao.com/1259903811"
+            className="w-full h-[356px] rounded-[4px]"
+          />
         </div>
         <div className="flex flex-col gap-3 items-start px-8 pb-8 w-full">
           <PageBullet>
