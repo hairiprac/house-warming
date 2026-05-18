@@ -1,3 +1,5 @@
+import { GrStatus } from "./gr-status"
+
 export interface GiftItem {
   Thumbnail: string
   Item: string
@@ -16,7 +18,9 @@ interface GiftListItemProps {
 }
 
 export function GiftListItem({ item }: GiftListItemProps) {
-  const isDone = item.GRStatus === "Done"
+  const status = item.GRStatus === "Done" || item.GRStatus === "Registered"
+    ? item.GRStatus
+    : null
 
   return (
     <div className="bg-[#F5F0E8] border-b border-[#819E7A] flex gap-4 items-start px-4 py-6 rounded-tl-[24px] rounded-tr-[24px] w-full">
@@ -28,9 +32,9 @@ export function GiftListItem({ item }: GiftListItemProps) {
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
-        {isDone && (
-          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-            <span className="text-[#F5F0E8] text-[12px] font-semibold">Done</span>
+        {status && (
+          <div className="absolute inset-0 bg-black/30 flex items-end justify-start p-2">
+            <GrStatus status={status} />
           </div>
         )}
       </div>
