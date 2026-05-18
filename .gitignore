@@ -23,6 +23,10 @@
 # misc
 .DS_Store
 *.pem
+.claude/
+.playwright-mcp/
+*.png
+*.jpg
 
 # debug
 npm-debug.log*
