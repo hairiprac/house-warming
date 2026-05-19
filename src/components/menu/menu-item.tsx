@@ -14,7 +14,12 @@ export function MenuItem({ label, selected = false, className, href }: MenuItemP
 
   const inner = (
     <div className={cn("flex items-center w-full", className)}>
-      <div className={cn("h-20 pl-8 pr-6 py-[10px] rounded-tr-[52px] flex flex-1 items-center gap-2", bg)}>
+      <div
+        className={cn(
+          "h-20 pl-8 pr-6 py-[10px] rounded-tr-[52px] flex flex-1 items-center gap-2",
+          bg
+        )}
+      >
         <MenuNavs variant="Dot" />
         <span className="text-2xl font-medium text-[#F5F0E8] text-left leading-normal">
           {label}
@@ -24,6 +29,11 @@ export function MenuItem({ label, selected = false, className, href }: MenuItemP
     </div>
   )
 
-  if (href) return <Link href={href} className="block w-full">{inner}</Link>
+  if (href)
+    return (
+      <Link href={href} className="block w-full">
+        {inner}
+      </Link>
+    )
   return inner
 }

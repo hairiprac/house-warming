@@ -5,12 +5,13 @@ import { useRef, useCallback, useEffect } from "react"
 
 declare global {
   interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     kakao: any
   }
 }
 
 interface KakaoMapProps {
-  placeUrl: string   // https://map.kakao.com/?urlX=...&urlY=...&urlLevel=...
+  placeUrl: string // https://map.kakao.com/?urlX=...&urlY=...&urlLevel=...
   className?: string
 }
 
@@ -46,7 +47,9 @@ export function KakaoMap({ placeUrl, className }: KakaoMapProps) {
 
   if (!appKey) {
     return (
-      <div className={`flex items-center justify-center bg-[#9E9E8E] rounded-[4px] ${className ?? "w-full h-[356px]"}`}>
+      <div
+        className={`flex items-center justify-center bg-[#9E9E8E] rounded-[4px] ${className ?? "w-full h-[356px]"}`}
+      >
         <p className="text-[#F5F0E8] text-[14px] font-medium">NEXT_PUBLIC_KAKAO_MAP_KEY 미설정</p>
       </div>
     )

@@ -35,11 +35,7 @@ export function ParkButton({
     <button
       className={cn(
         "font-medium text-base",
-        btnType === "filled" && [
-          "rounded-[16px] p-4",
-          filledBg[variant],
-          "text-[#F5F0E8]",
-        ],
+        btnType === "filled" && ["rounded-[16px] p-4", filledBg[variant], "text-[#F5F0E8]"],
         btnType === "lined" && ["px-4 py-3", linedColor[variant]],
         isDisabled && "pointer-events-none",
         className

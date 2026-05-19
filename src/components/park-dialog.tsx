@@ -25,9 +25,7 @@ function DialogBox({ message, variant, confirmText, onCancel, onConfirm }: ParkD
 
   return (
     <div className="bg-[#F5F0E8] border border-[#255435] drop-shadow-[0px_4px_2px_rgba(0,0,0,0.25)] flex flex-col gap-12 items-start px-8 py-10 rounded-[8px] w-[331px]">
-      <p className="text-[16px] font-medium text-[#255435] leading-normal w-full">
-        {message}
-      </p>
+      <p className="text-[16px] font-medium text-[#255435] leading-normal w-full">{message}</p>
 
       {variant === "Input" && (
         <div className="flex flex-col gap-1.5 items-start w-full">

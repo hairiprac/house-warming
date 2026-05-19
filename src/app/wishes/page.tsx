@@ -39,7 +39,9 @@ export default function WishesPage() {
       <Gnb variant="Lv1" title="Gift Registry" />
       <div className="flex flex-col items-start w-full">
         <div className="flex flex-col gap-3 items-start p-8 w-full">
-          <PageBullet>진짜 아무것도 필요 없는데 그래도 뭔가 갖고 올 거잖아요... 그래서 즐겨찾기 털어봅니다.</PageBullet>
+          <PageBullet>
+            진짜 아무것도 필요 없는데 그래도 뭔가 갖고 올 거잖아요... 그래서 즐겨찾기 털어봅니다.
+          </PageBullet>
           <PageBullet>근데 진짜 뭐든 감사히 받습니다.</PageBullet>
           <PageBullet>링크가 최저가가 아닐 수 있습니다.</PageBullet>
         </div>
