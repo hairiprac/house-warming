@@ -19,6 +19,8 @@ Next.js 16 App Router 기반 모바일 웹 초대장.
 | ParkOffwhite | `#F5F0E8` | 페이지 배경, 아이콘 포인트 |
 | ParkSage | `#819E7A` | GNB 탭, 하단 영역 |
 
+
+
 ## 프로젝트 구조
 
 ```
