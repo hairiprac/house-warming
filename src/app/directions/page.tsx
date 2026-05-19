@@ -27,7 +27,7 @@ export default function DirectionsPage() {
               rel="noopener noreferrer"
               className="text-[#835B22] underline decoration-solid"
             >
-              서초구 서운로 17길 11, 프레스티지 서초
+              서초구 서운로 11길 17, 프레스티지 서초
             </a>
           </PageBullet>
           <PageBullet>어느 역이든 걸어서 15분 정도 걸리지만 초행길이면 좀 멀게 느껴질 수 있습니다.</PageBullet>
