@@ -14,18 +14,13 @@ export function MenuItem({ label, selected = false, className, href }: MenuItemP
 
   const inner = (
     <div className={cn("flex items-center w-full", className)}>
-      <div
-        className={cn(
-          "h-20 pl-8 pr-6 py-[10px] rounded-tr-[52px] flex flex-1 items-center gap-2",
-          bg
-        )}
-      >
+      <div className={cn("h-[64px] px-6 py-[10px] rounded-tr-[48px] flex flex-1 items-center gap-2", bg)}>
         <MenuNavs variant="Dot" />
-        <span className="text-2xl font-medium text-[#F5F0E8] text-left leading-normal">
+        <span className="text-[18px] font-medium text-[#F5F0E8] text-left leading-normal">
           {label}
         </span>
       </div>
-      <div className={cn("w-20 h-20 shrink-0 rounded-tl-[52px]", bg)} />
+      <div className={cn("w-20 h-[64px] shrink-0 rounded-tl-[48px]", bg)} />
     </div>
   )
 

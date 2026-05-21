@@ -23,9 +23,8 @@ export function GiftListItem({ item }: GiftListItemProps) {
   const dimmed = item.GRStatus !== "Default"
 
   return (
-    <div className="bg-[#F5F0E8] border-b border-[#819E7A] flex gap-4 items-center px-4 py-6 rounded-tl-[24px] rounded-tr-[24px] w-full">
-      {/* 썸네일 */}
-      <div className="relative h-[118px] rounded-[18px] shrink-0 w-[112px] overflow-hidden bg-[#819E7A]">
+    <div className="bg-[#F5F0E8] border-b border-[#819E7A] flex gap-3 items-center p-3 rounded-tl-[24px] rounded-tr-[24px] w-full">
+      <div className="relative size-[118px] rounded-[18px] shrink-0 overflow-hidden bg-[#E0D8C8]">
         {item.Thumbnail && (
           <Image
             src={item.Thumbnail}
@@ -37,13 +36,11 @@ export function GiftListItem({ item }: GiftListItemProps) {
         )}
       </div>
 
-      {/* 텍스트 영역 */}
-      <div className="flex flex-1 flex-col gap-3 items-start min-w-0">
+      <div className="flex flex-1 flex-col gap-3 items-start min-w-0 self-stretch">
         <div className="flex flex-col gap-1 items-start w-full">
-          {/* 카테고리명 + GrStatus 배지 인라인 */}
-          <div className="flex gap-3 items-center w-full">
+          <div className="flex gap-2 items-center w-full">
             <p
-              className={`text-[20px] font-bold text-[#255435] leading-normal whitespace-nowrap ${dimmed ? "opacity-50" : ""}`}
+              className={`text-[16px] font-bold text-[#255435] leading-normal whitespace-nowrap ${dimmed ? "opacity-50" : ""}`}
             >
               {item.Item}
             </p>
@@ -52,20 +49,20 @@ export function GiftListItem({ item }: GiftListItemProps) {
 
           {item.ActualName && item.ActualName !== "-" && (
             <p
-              className={`text-[16px] font-semibold text-[#255435] leading-normal truncate w-full ${dimmed ? "opacity-50" : ""}`}
+              className={`text-[14px] font-medium text-[#255435] leading-normal truncate w-full ${dimmed ? "opacity-50" : ""}`}
             >
               {item.ActualName}
             </p>
           )}
           {item.Option && item.Option !== "-" && (
             <p
-              className={`text-[14px] font-semibold text-[#255435] leading-normal ${dimmed ? "opacity-50" : ""}`}
+              className={`text-[12px] text-[#255435] leading-normal ${dimmed ? "opacity-50" : ""}`}
             >
               {item.Option}
             </p>
           )}
           <div
-            className={`flex gap-1.5 items-center text-[14px] font-semibold whitespace-nowrap ${dimmed ? "opacity-50" : ""}`}
+            className={`flex gap-1 items-center text-[12px] font-semibold whitespace-nowrap ${dimmed ? "opacity-50" : ""}`}
           >
             {item.Price && (
               <div className="flex gap-0.5 items-center text-[#255435] leading-normal">
@@ -89,7 +86,7 @@ export function GiftListItem({ item }: GiftListItemProps) {
         </div>
         {item.Desc && (
           <p
-            className={`text-[12px] font-semibold text-[#255435] leading-normal w-full ${dimmed ? "opacity-50" : ""}`}
+            className={`text-[11px] font-medium text-[#255435] leading-normal w-full ${dimmed ? "opacity-50" : ""}`}
           >
             {item.Desc}
           </p>

@@ -10,8 +10,10 @@ export function GrStatus({ status, className }: GrStatusProps) {
   const label = status === "Done" ? "증정완료" : "예약됨"
 
   return (
-    <div className={`${bg} flex items-center justify-center p-1 rounded-[8px] ${className ?? ""}`}>
-      <span className="text-[#F5F0E8] text-[12px] font-semibold leading-normal whitespace-nowrap">
+    <div
+      className={`${bg} flex items-center justify-center px-[6px] py-[4px] rounded-[12px] ${className ?? ""}`}
+    >
+      <span className="text-[#F5F0E8] text-[10px] font-semibold leading-normal whitespace-nowrap">
         {label}
       </span>
     </div>
