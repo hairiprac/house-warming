@@ -15,8 +15,8 @@ export function Gnb({ variant = "Home", title }: GnbProps) {
         <Link href="/" className="shrink-0">
           <GnbIcon variant={variant === "Lv1" ? "Back" : "Home"} />
         </Link>
-        {variant === "Lv1" && title && (
-          <span className="text-[32px] font-semibold text-[#255435]">{title}</span>
+        {title && (
+          <span className="text-[20px] font-semibold text-[#255435]">{title}</span>
         )}
       </nav>
     </div>
