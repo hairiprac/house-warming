@@ -35,8 +35,8 @@ export async function readRows(sheetRange?: string) {
   return res.data.values ?? []
 }
 
-export async function getAllRows(): Promise<Record<string, string>[]> {
-  const rows = await readRows()
+export async function getAllRows(sheetName?: string): Promise<Record<string, string>[]> {
+  const rows = await readRows(sheetName)
   if (rows.length < 2) return []
   const [headers, ...dataRows] = rows
   return dataRows.map((row) => Object.fromEntries(headers.map((key, i) => [key, row[i] ?? ""])))
