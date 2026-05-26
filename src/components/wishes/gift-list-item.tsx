@@ -13,7 +13,7 @@ export interface GiftItem {
   Desc: string
   WheretoLink: string
   Link: string
-  GRStatus: string
+  Status: string
   RequireAuth: string
 }
 
@@ -24,8 +24,8 @@ interface GiftListItemProps {
 
 export function GiftListItem({ item, onClaim }: GiftListItemProps) {
   const [pressed, setPressed] = useState(false)
-  const status = item.GRStatus as "Sent" | "Reserved" | "Default"
-  const dimmed = item.GRStatus !== "Default"
+  const status = item.Status as "Sent" | "Reserved" | "Default"
+  const dimmed = item.Status !== "Default"
   const interactive = status === "Default"
 
   function handleClick() {
