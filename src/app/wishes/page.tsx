@@ -15,6 +15,7 @@ export default function WishesPage() {
   const [authed, setAuthed] = useState(false)
   const [loading, setLoading] = useState(true)
   const [dialogOpen, setDialogOpen] = useState(false)
+  const [claimItem, setClaimItem] = useState<GiftItem | null>(null)
 
   useEffect(() => {
     fetch("/api/wishlist")
@@ -49,7 +50,9 @@ export default function WishesPage() {
           {loading ? (
             <p className="text-[16px] font-medium text-[#9E9E8E]">불러오는 중...</p>
           ) : (
-            items.map((item, index) => <GiftListItem key={index} item={item} />)
+            items.map((item, index) => (
+              <GiftListItem key={index} item={item} onClaim={setClaimItem} />
+            ))
           )}
           {!authed && !loading && (
             <ParkButton
