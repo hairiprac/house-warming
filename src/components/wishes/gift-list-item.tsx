@@ -19,7 +19,7 @@ interface GiftListItemProps {
 }
 
 export function GiftListItem({ item }: GiftListItemProps) {
-  const status = item.GRStatus as "Done" | "Registered" | "Default"
+  const status = item.GRStatus as "Sent" | "Reserved" | "Default"
   const dimmed = item.GRStatus !== "Default"
 
   return (

@@ -1,13 +1,13 @@
 interface GrStatusProps {
-  status: "Done" | "Registered" | "Default"
+  status: "Sent" | "Reserved" | "Default"
   className?: string
 }
 
 export function GrStatus({ status, className }: GrStatusProps) {
   if (status === "Default") return null
 
-  const bg = status === "Done" ? "bg-[#CA6129]" : "bg-[#835B22]"
-  const label = status === "Done" ? "증정완료" : "예약됨"
+  const bg = status === "Sent" ? "bg-[#CA6129]" : "bg-[#835B22]"
+  const label = status === "Sent" ? "증정완료" : "예약됨"
 
   return (
     <div
