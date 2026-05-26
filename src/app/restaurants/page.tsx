@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import { Gnb } from "@/components/gnb/gnb"
 import { MenuSet } from "@/components/menu/menu-set"
+import { PageBullet } from "@/components/page-bullet"
 import { PageLayout } from "@/components/page-layout"
 import { menuItems } from "@/lib/menu-items"
 
@@ -30,7 +31,12 @@ export default function RestaurantsPage() {
   return (
     <PageLayout>
       <Gnb variant="Lv1" title="뭐 먹을까요" />
-      <div className="flex flex-col items-start w-full px-8 pt-6 pb-4 gap-3">
+      <div className="px-8 pt-6 w-full">
+        <PageBullet>
+          주변의 프랜차이즈 외 맛집을 소개합니다. (담당자의 배달 앱 즐겨찾기 털이) 뭐 먹을지 모르겠을 때 참고만 하셔요. 순서는 랜덤!
+        </PageBullet>
+      </div>
+      <div className="flex flex-col items-start w-full px-8 pt-4 pb-4 gap-3">
         {loading ? (
           <p className="text-[16px] font-medium text-[#9E9E8E]">불러오는 중...</p>
         ) : (
