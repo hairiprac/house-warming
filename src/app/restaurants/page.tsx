@@ -7,7 +7,7 @@ import { menuItems } from "@/lib/menu-items"
 export default function RestaurantsPage() {
   return (
     <PageLayout>
-      <Gnb variant="Lv1" title="주변 맛집 안내" />
+      <Gnb variant="Lv1" title="뭐 먹을까요" />
       <div className="flex flex-col items-start w-full">
         <div className="flex flex-col gap-3 items-start p-8 w-full">
           <PageBullet>담당자의 배달 앱 즐겨찾기 털이 예정...</PageBullet>
